@@ -8,94 +8,117 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:Inter, sans-serif; }
-body { background:#0b0b0f; color:#fff; }
+:root{
+  --bg:#0a0a0f;
+  --card:#141420;
+  --accent:#ff2d2d;
+  --text:#ffffff;
+  --muted:rgba(255,255,255,0.7);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif;}
+body{background:var(--bg);color:var(--text);scroll-behavior:smooth;}
 
 /* NAV */
-nav {
-  position:fixed; top:0; width:100%;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
-  display:flex; justify-content:space-between;
-  padding:15px 30px;
+nav{
+  position:fixed;top:0;width:100%;
+  display:flex;justify-content:space-between;
+  padding:18px 40px;
+  background:rgba(10,10,15,0.7);
+  backdrop-filter:blur(12px);
   z-index:1000;
+  border-bottom:1px solid rgba(255,255,255,0.05);
 }
-nav h1 { font-size:18px; color:#ff3b3b; }
-nav a { color:#fff; margin-left:20px; text-decoration:none; font-size:14px; opacity:0.8; }
-nav a:hover { opacity:1; }
+nav h1{color:var(--accent);font-size:18px;letter-spacing:1px;}
+nav a{color:var(--muted);margin-left:25px;text-decoration:none;font-size:14px;}
+nav a:hover{color:#fff;}
 
 /* HERO */
-.hero {
+.hero{
   height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
-  background:linear-gradient(to bottom, rgba(0,0,0,0.6), #0b0b0f),
-  url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6') center/cover;
+  padding:0 20px;
+  background:
+    radial-gradient(circle at top, rgba(255,45,45,0.25), transparent 60%),
+    linear-gradient(to bottom, rgba(0,0,0,0.6), #0a0a0f),
+    url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover;
 }
-.hero h2 { font-size:52px; font-weight:800; }
-.hero p { margin-top:15px; font-size:18px; opacity:0.8; max-width:600px; }
-.btn {
+.hero h2{font-size:58px;font-weight:800;max-width:900px;}
+.hero p{margin-top:15px;color:var(--muted);max-width:600px;font-size:18px;}
+.btn{
   margin-top:25px;
-  padding:12px 20px;
-  background:#ff3b3b;
-  border:none;
-  border-radius:8px;
-  color:#fff;
-  cursor:pointer;
+  background:var(--accent);
+  padding:12px 22px;
+  border-radius:10px;
+  color:white;
   text-decoration:none;
-  display:inline-block;
+  font-weight:600;
+  transition:0.3s;
 }
-.btn:hover { background:#ff1f1f; }
+.btn:hover{transform:scale(1.05);}
 
 /* SECTIONS */
-section { padding:80px 10%; }
-h3 { font-size:28px; margin-bottom:20px; }
+section{padding:100px 10%;}
 
 /* GRID */
-.grid {
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
 }
 
 /* CARDS */
-.card {
-  background:#15151c;
-  padding:20px;
-  border-radius:12px;
+.card{
+  background:linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.08);
+  padding:25px;
+  border-radius:16px;
   transition:0.3s;
 }
-.card:hover { transform:translateY(-5px); }
-.card p { opacity:0.8; margin-top:10px; }
+.card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(255,45,45,0.5);
+}
+.card h4{margin-bottom:10px;}
+.card p{color:var(--muted);font-size:14px;}
+
+/* TITLE */
+h3{font-size:30px;margin-bottom:25px;}
 
 /* REVIEW */
-.review {
-  background:#1b1b24;
+.review{
+  background:var(--card);
   padding:20px;
-  border-radius:12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.05);
+  color:var(--muted);
+  font-size:14px;
 }
 
 /* MAP */
-iframe {
+iframe{
   width:100%;
-  height:300px;
-  border-radius:12px;
+  height:320px;
+  border-radius:16px;
   border:none;
 }
 
 /* FOOTER */
-footer {
+footer{
   text-align:center;
-  padding:40px;
-  opacity:0.6;
-  font-size:14px;
+  padding:50px;
+  color:var(--muted);
+  font-size:13px;
 }
 
+/* MOBILE */
 @media(max-width:600px){
-  .hero h2 { font-size:34px; }
+  .hero h2{font-size:36px;}
+  nav{padding:15px 20px;}
 }
 </style>
 </head>
@@ -103,7 +126,7 @@ footer {
 <body>
 
 <nav>
-  <h1>Raceway Liquor</h1>
+  <h1>RACEWAY LIQUOR</h1>
   <div>
     <a href="#about">About</a>
     <a href="#products">Products</a>
@@ -114,39 +137,39 @@ footer {
 
 <!-- HERO -->
 <div class="hero">
-  <h2>Cold Drinks. Fair Prices. Local Service.</h2>
-  <p>Your neighborhood liquor store in Louisville built on respect, speed, and community.</p>
-  <a class="btn" href="#products">Explore Products</a>
+  <h2>Cold Drinks. Fair Prices. Real Community.</h2>
+  <p>Your trusted neighborhood liquor store in Louisville built on respect, speed, and consistency.</p>
+  <a class="btn" href="#products">Explore Store</a>
 </div>
 
 <!-- ABOUT -->
 <section id="about">
-  <h3>About Us</h3>
-  <p style="opacity:0.8; max-width:800px;">
-    Raceway Liquor is a family-run neighborhood store known for friendly service,
-    fast checkout, and affordable prices. Customers come daily for cold drinks,
-    slushies, and a welcoming environment.
+  <h3>About Raceway Liquor</h3>
+  <p style="color:rgba(255,255,255,0.7);max-width:800px;">
+    Raceway Liquor is a family-run neighborhood store known for fast service, great prices,
+    and a welcoming environment. Customers come daily for cold drinks, slushies, and a
+    consistent, friendly experience.
   </p>
 </section>
 
 <!-- PRODUCTS -->
 <section id="products">
-  <h3>Featured Products</h3>
+  <h3>Featured Selection</h3>
 
   <div class="grid">
     <div class="card">
       <h4>🍺 Cold Beer</h4>
-      <p>Always stocked and ice cold for quick pickup.</p>
+      <p>Always stocked and ready for quick pickup.</p>
     </div>
 
     <div class="card">
       <h4>🥃 Spirits</h4>
-      <p>Wide selection of whiskey, vodka, rum, and more.</p>
+      <p>Whiskey, vodka, rum, tequila and more.</p>
     </div>
 
     <div class="card">
       <h4>❄️ Slushies</h4>
-      <p>Customer favorite — refreshing and top rated.</p>
+      <p>Customer favorite — refreshing and top-rated.</p>
     </div>
 
     <div class="card">
@@ -158,13 +181,13 @@ footer {
 
 <!-- REVIEWS -->
 <section id="reviews">
-  <h3>Customer Reviews ⭐ 4.8/5</h3>
+  <h3>Customer Reviews ⭐ 4.8</h3>
 
   <div class="grid">
-    <div class="review">“Feels like family every time I walk in.”</div>
-    <div class="review">“Best prices in the area and great service.”</div>
-    <div class="review">“I come here daily—always fast and friendly.”</div>
-    <div class="review">“Slushies are top tier 🔥”</div>
+    <div class="review">“Feels like family every time I come in.”</div>
+    <div class="review">“Best prices and super friendly staff.”</div>
+    <div class="review">“Fast service, in and out every time.”</div>
+    <div class="review">“Slushies are unreal 🔥”</div>
   </div>
 </section>
 
@@ -172,9 +195,11 @@ footer {
 <section id="contact">
   <h3>Visit Us</h3>
 
-  <p>📍 3122 Taylor Blvd, Louisville, KY</p>
-  <p>📞 (502) 409-9655</p>
-  <p>🕒 Open Daily – Until Midnight</p>
+  <p style="color:rgba(255,255,255,0.7);">
+    📍 3122 Taylor Blvd, Louisville, KY<br>
+    📞 (502) 409-9655<br>
+    🕒 Open Daily – Until Midnight
+  </p>
 
   <br>
 
@@ -185,9 +210,7 @@ footer {
 <!-- MAP -->
 <section>
   <h3>Location</h3>
-  <iframe 
-    src="https://www.google.com/maps?q=3122+Taylor+Blvd+Louisville+KY&output=embed">
-  </iframe>
+  <iframe src="https://www.google.com/maps?q=3122+Taylor+Blvd+Louisville+KY&output=embed"></iframe>
 </section>
 
 <footer>
