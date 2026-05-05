@@ -1,169 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raceway Liquor</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #fff;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Raceway Liquor</title>
 
-    header {
-      background: #c62828;
-      padding: 20px;
-      text-align: center;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:Inter, sans-serif; }
+body { background:#0b0b0f; color:#fff; }
 
-    nav {
-      background: #000;
-      display: flex;
-      justify-content: center;
-      padding: 10px;
-    }
+/* NAV */
+nav {
+  position:fixed; top:0; width:100%;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  display:flex; justify-content:space-between;
+  padding:15px 30px;
+  z-index:1000;
+}
+nav h1 { font-size:18px; color:#ff3b3b; }
+nav a { color:#fff; margin-left:20px; text-decoration:none; font-size:14px; opacity:0.8; }
+nav a:hover { opacity:1; }
 
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+/* HERO */
+.hero {
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.6), #0b0b0f),
+  url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6') center/cover;
+}
+.hero h2 { font-size:52px; font-weight:800; }
+.hero p { margin-top:15px; font-size:18px; opacity:0.8; max-width:600px; }
+.btn {
+  margin-top:25px;
+  padding:12px 20px;
+  background:#ff3b3b;
+  border:none;
+  border-radius:8px;
+  color:#fff;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+}
+.btn:hover { background:#ff1f1f; }
 
-    nav a:hover {
-      color: #c62828;
-    }
+/* SECTIONS */
+section { padding:80px 10%; }
+h3 { font-size:28px; margin-bottom:20px; }
 
-    .hero {
-      padding: 60px 20px;
-      text-align: center;
-      background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') no-repeat center/cover;
-    }
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+  gap:20px;
+}
 
-    .hero h2 {
-      font-size: 2.5rem;
-      background: rgba(0,0,0,0.6);
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 10px;
-    }
+/* CARDS */
+.card {
+  background:#15151c;
+  padding:20px;
+  border-radius:12px;
+  transition:0.3s;
+}
+.card:hover { transform:translateY(-5px); }
+.card p { opacity:0.8; margin-top:10px; }
 
-    .section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
+/* REVIEW */
+.review {
+  background:#1b1b24;
+  padding:20px;
+  border-radius:12px;
+}
 
-    .section h2 {
-      color: #c62828;
-    }
+/* MAP */
+iframe {
+  width:100%;
+  height:300px;
+  border-radius:12px;
+  border:none;
+}
 
-    .reviews {
-      background: #1c1c1c;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:40px;
+  opacity:0.6;
+  font-size:14px;
+}
 
-    .footer {
-      background: #000;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #c62828;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-
-    .btn:hover {
-      background: #ff5252;
-    }
-  </style>
+@media(max-width:600px){
+  .hero h2 { font-size:34px; }
+}
+</style>
 </head>
+
 <body>
 
-<header>
-  <h1>Raceway Liquor</h1>
-  <p>Your Neighborhood Liquor Store</p>
-</header>
-
 <nav>
-  <a href="#about">About</a>
-  <a href="#products">Products</a>
-  <a href="#reviews">Reviews</a>
-  <a href="#contact">Contact</a>
+  <h1>Raceway Liquor</h1>
+  <div>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
-<section class="hero">
-  <h2>Great Prices. Friendly Service. Family-Owned.</h2>
-</section>
+<!-- HERO -->
+<div class="hero">
+  <h2>Cold Drinks. Fair Prices. Local Service.</h2>
+  <p>Your neighborhood liquor store in Louisville built on respect, speed, and community.</p>
+  <a class="btn" href="#products">Explore Products</a>
+</div>
 
-<section id="about" class="section">
-  <h2>About Us</h2>
-  <p>
-    Raceway Liquor is a family-run neighborhood liquor store located in Louisville, KY.
-    We’re known for our friendly staff, fast service, and unbeatable prices.
-    Whether you're grabbing a quick drink or stopping by daily, we treat everyone like family.
+<!-- ABOUT -->
+<section id="about">
+  <h3>About Us</h3>
+  <p style="opacity:0.8; max-width:800px;">
+    Raceway Liquor is a family-run neighborhood store known for friendly service,
+    fast checkout, and affordable prices. Customers come daily for cold drinks,
+    slushies, and a welcoming environment.
   </p>
 </section>
 
-<section id="products" class="section">
-  <h2>What We Offer</h2>
-  <ul>
-    <li>🍺 Cold Beer</li>
-    <li>🍷 Wine Selection</li>
-    <li>🥃 Liquor & Spirits</li>
-    <li>🥤 Sodas & Drinks</li>
-    <li>❄️ Top-Tier Slushies</li>
-  </ul>
+<!-- PRODUCTS -->
+<section id="products">
+  <h3>Featured Products</h3>
+
+  <div class="grid">
+    <div class="card">
+      <h4>🍺 Cold Beer</h4>
+      <p>Always stocked and ice cold for quick pickup.</p>
+    </div>
+
+    <div class="card">
+      <h4>🥃 Spirits</h4>
+      <p>Wide selection of whiskey, vodka, rum, and more.</p>
+    </div>
+
+    <div class="card">
+      <h4>❄️ Slushies</h4>
+      <p>Customer favorite — refreshing and top rated.</p>
+    </div>
+
+    <div class="card">
+      <h4>🥤 Drinks</h4>
+      <p>Sodas, mixers, and everyday essentials.</p>
+    </div>
+  </div>
 </section>
 
-<section id="reviews" class="section">
-  <h2>Customer Reviews ⭐ 4.8/5</h2>
+<!-- REVIEWS -->
+<section id="reviews">
+  <h3>Customer Reviews ⭐ 4.8/5</h3>
 
-  <div class="reviews">
-    <p>"AJ and his team are incredible. I come in daily!"</p>
+  <div class="grid">
+    <div class="review">“Feels like family every time I walk in.”</div>
+    <div class="review">“Best prices in the area and great service.”</div>
+    <div class="review">“I come here daily—always fast and friendly.”</div>
+    <div class="review">“Slushies are top tier 🔥”</div>
   </div>
-
-  <div class="reviews">
-    <p>"Great prices and treats you like family."</p>
-  </div>
-
-  <div class="reviews">
-    <p>"Best place around. Hospitality is key!"</p>
-  </div>
-
-  <div class="reviews">
-    <p>"Fast service, respectful staff, always in and out."</p>
-  </div>
-
 </section>
 
-<section id="contact" class="section">
-  <h2>Contact & Location</h2>
+<!-- CONTACT -->
+<section id="contact">
+  <h3>Visit Us</h3>
+
   <p>📍 3122 Taylor Blvd, Louisville, KY</p>
   <p>📞 (502) 409-9655</p>
-  <p>🕒 Open Daily – Closes at Midnight</p>
+  <p>🕒 Open Daily – Until Midnight</p>
 
-  <a class="btn" href="#">Order on DoorDash</a>
+  <br>
+
+  <a class="btn" href="https://www.doordash.com/">Order Delivery</a>
+  <a class="btn" href="tel:5024099655">Call Now</a>
 </section>
 
-<footer class="footer">
-  <p>© 2026 Raceway Liquor. All rights reserved.</p>
+<!-- MAP -->
+<section>
+  <h3>Location</h3>
+  <iframe 
+    src="https://www.google.com/maps?q=3122+Taylor+Blvd+Louisville+KY&output=embed">
+  </iframe>
+</section>
+
+<footer>
+  © 2026 Raceway Liquor — Built for the community
 </footer>
 
 </body>
